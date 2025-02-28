@@ -84,17 +84,17 @@ addEventListener('mouseout', () => {
     cursorElm.style.opacity = '0';
 });
 
-addEventListener("touchmove",(e)=>{
-    console.log(e)
+addEventListener("touchmove", (e) => {
     if (tmrId) clearTimeout(tmrId);
+    const touch = e.touches[0]; // Get the first touch point
     cursorElm.style.opacity = '1';
-    cursorElm.style.left = `${e.clientX - cursorElm.offsetWidth / 2}px`;
-    cursorElm.style.top = `${e.clientY - cursorElm.offsetHeight / 2}px`;
-    tmrId = setTimeout(()=>{
+    cursorElm.style.left = `${touch.clientX - cursorElm.offsetWidth / 2}px`;
+    cursorElm.style.top = `${touch.clientY - cursorElm.offsetHeight / 2}px`;
+    tmrId = setTimeout(() => {
         cursorElm.style.opacity = 0;
     }, 5000);
 });
 
-addEventListener("touchend",(e)=>{
+addEventListener("touchend", () => {
     cursorElm.style.opacity = '0';
-})
+});
