@@ -84,7 +84,7 @@ addEventListener('mouseout', () => {
     cursorElm.style.opacity = '0';
 });
 
-addEventListener("touchmove",()=>{
+addEventListener("touchmove",(e)=>{
     if (tmrId) clearTimeout(tmrId);
     cursorElm.style.opacity = '1';
     cursorElm.style.left = `${e.clientX - cursorElm.offsetWidth / 2}px`;
@@ -94,6 +94,6 @@ addEventListener("touchmove",()=>{
     }, 5000);
 });
 
-addEventListener("touchend",()=>{
+addEventListener("touchend",(e)=>{
     cursorElm.style.opacity = '0';
 })
